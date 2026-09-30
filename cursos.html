@@ -4,20 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
     <title>Cursos - CONEC.JOV</title>
 </head>
 
 <body>
 
     <header>
-        <img src="imagens/logo.png" alt="Logo da CONEC.JOV" width="150" height="150">
-        <h1>CONEC.JOV</h1>
+        <div class="cabecalho">
+            <img src="imagens/logo.png" alt="Logo da CONEC.JOV" width="150" height="150">
+            <h1>CONEC.JOV</h1>
+        </div>
     </header>
 
     <nav>
+        <button class="menu-hamburguer" type="button" aria-label="Abrir menu">
+            ☰
+        </button>
+
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="sobre.html">Sobre</a></li>
+
+            <li class="dropdown">
+                <a href="cursos.html">Cursos</a>
+                <ul class="dropdown-menu">
+                    <li><a href="inclusaodigital.html">Inclusão Digital</a></li>
+                    <li><a href="cronograma.html">Cronograma</a></li>
+                </ul>
+            </li>
+
+            <li><a href="projetos.html">Projetos</a></li>
             <li><a href="voluntariado.html">Voluntariado</a></li>
             <li><a href="doacoes.html">Doações</a></li>
         </ul>
@@ -52,7 +70,7 @@
 
         <h2>Inscreva-se em nossos cursos:</h2>
 
-        <form action="inscricao.html" method="post">
+        <form action="inscricao.html" method="post" id="form-inscricao">
 
             <label for="nome">Nome:</label>
             <input
@@ -92,13 +110,93 @@
 
         </form>
 
+        <!-- MODAL DE CONFIRMAÇÃO -->
+
+        <div id="modal-confirmacao" class="modal">
+
+            <div class="modal-conteudo">
+
+                <button
+                    type="button"
+                    class="modal-fechar"
+                    onclick="fecharModal()"
+                    aria-label="Fechar"
+                >
+                    &times;
+                </button>
+
+                <h2>Confirmar inscrição</h2>
+
+                <p>
+                    Deseja realmente se inscrever neste curso?
+                </p>
+
+                <button
+                    type="button"
+                    onclick="confirmarInscricao()"
+                >
+                    Confirmar inscrição
+                </button>
+
+                <button
+                    type="button"
+                    onclick="fecharModal()"
+                >
+                    Cancelar
+                </button>
+
+            </div>
+
+        </div>
+
     </main>
 
     <footer>
         <p><strong>CONEC.JOV</strong></p>
+
         <p>Promovendo oportunidades para jovens.</p>
+
         <p>&copy; 2026 CONEC.JOV. Todos os direitos reservados.</p>
     </footer>
+
+
+    <!-- JAVASCRIPT DO MODAL -->
+
+    <script>
+        const formulario = document.getElementById("form-inscricao");
+        const modal = document.getElementById("modal-confirmacao");
+
+        formulario.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            if (formulario.checkValidity()) {
+
+                modal.classList.add("ativo");
+
+            } else {
+
+                formulario.reportValidity();
+
+            }
+
+        });
+
+
+        function fecharModal() {
+
+            modal.classList.remove("ativo");
+
+        }
+
+
+        function confirmarInscricao() {
+
+            formulario.submit();
+
+        }
+    </script>
+<script src="script.js"></script>
 
 </body>
 

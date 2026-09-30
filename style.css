@@ -1,0 +1,660 @@
+/* =========================================
+   DESIGN SYSTEM - CONEC.JOV
+   ========================================= */
+
+:root {
+
+    /* CORES PRIMÁRIAS */
+    --cor-primaria: #FF6600;
+    --cor-primaria-hover: #E65C00;
+
+    /* CORES NEUTRAS */
+    --cor-neutra-900: #222222;
+    --cor-neutra-700: #333333;
+    --cor-neutra-500: #666666;
+    --cor-neutra-200: #CCCCCC;
+    --cor-neutra-100: #F5F5F5;
+    --cor-neutra-50: #FFFFFF;
+
+    /* TIPOGRAFIA - CINCO TAMANHOS */
+    --tamanho-texto: 16px;
+    --tamanho-texto-destaque: 18px;
+    --tamanho-subtitulo: 24px;
+    --tamanho-titulo: 30px;
+    --tamanho-titulo-principal: 36px;
+
+    --fonte-principal: Arial, sans-serif;
+
+    /* ESPAÇAMENTOS - ESCALA MODULAR */
+    --espaco-1: 8px;
+    --espaco-2: 16px;
+    --espaco-3: 24px;
+    --espaco-4: 32px;
+    --espaco-5: 40px;
+}
+
+
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--fonte-principal);
+    font-size: var(--tamanho-texto);
+    color: var(--cor-neutra-700);
+    background-color: var(--cor-neutra-50);
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   CABEÇALHO
+   ========================================= */
+
+header {
+    padding: var(--espaco-4);
+    text-align: center;
+    background-color: var(--cor-neutra-100);
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espaco-3);
+}
+
+.cabecalho img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.cabecalho h1 {
+    font-size: var(--tamanho-titulo-principal);
+    color: var(--cor-neutra-900);
+    margin: 0;
+}
+
+
+/* =========================================
+   MENU DE NAVEGAÇÃO
+   ========================================= */
+
+nav {
+    background-color: var(--cor-neutra-900);
+    padding: var(--espaco-2);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--espaco-2);
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav a {
+    display: inline-block;
+    padding: var(--espaco-1) var(--espaco-2);
+
+    background-color: var(--cor-primaria);
+    color: var(--cor-neutra-50);
+
+    text-decoration: none;
+    border-radius: var(--espaco-1);
+
+    font-size: var(--tamanho-texto);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+
+/* =========================================
+   GRID PRINCIPAL DE 12 COLUNAS
+   ========================================= */
+
+main {
+    display: grid;
+
+    /* Divide o conteúdo em 12 colunas iguais */
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+
+    /* Espaço entre as colunas e linhas */
+    gap: var(--espaco-3);
+
+    width: 90%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+    padding: var(--espaco-4) 0;
+}
+
+/* Por padrão, os elementos ocupam as 12 colunas */
+main > * {
+    grid-column: span 12;
+}
+
+/* As seções podem ocupar metade do espaço */
+main > section {
+    grid-column: span 6;
+
+    padding: var(--espaco-3);
+    margin: 0;
+
+    background-color: var(--cor-neutra-100);
+    border-radius: var(--espaco-1);
+}
+
+
+/* =========================================
+   TÍTULOS E TEXTOS
+   ========================================= */
+
+main h2 {
+    font-size: var(--tamanho-titulo);
+    color: var(--cor-neutra-900);
+    margin-bottom: var(--espaco-2);
+}
+
+main h3 {
+    font-size: var(--tamanho-subtitulo);
+    color: var(--cor-neutra-700);
+}
+
+main p {
+    font-size: var(--tamanho-texto);
+    color: var(--cor-neutra-700);
+}
+
+
+/* =========================================
+   IMAGENS
+   ========================================= */
+
+main img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =========================================
+   LISTAS E LINKS
+   ========================================= */
+
+main ul {
+    padding-left: var(--espaco-3);
+}
+
+main li {
+    margin-bottom: var(--espaco-1);
+}
+
+main a {
+    color: var(--cor-primaria);
+    font-size: var(--tamanho-texto);
+    font-weight: bold;
+}
+
+
+/* =========================================
+   FORMULÁRIOS
+   ========================================= */
+
+form {
+    max-width: 600px;
+}
+
+label {
+    display: block;
+    margin-bottom: var(--espaco-1);
+    font-size: var(--tamanho-texto);
+    font-weight: bold;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: var(--espaco-1);
+    margin-bottom: var(--espaco-2);
+
+    border: 1px solid var(--cor-neutra-200);
+    border-radius: var(--espaco-1);
+
+    font-size: var(--tamanho-texto);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+
+/* =========================================
+   BOTÕES DE FORMULÁRIO
+   ========================================= */
+
+button,
+input[type="submit"] {
+    padding: var(--espaco-1) var(--espaco-2);
+
+    background-color: var(--cor-primaria);
+    color: var(--cor-neutra-50);
+
+    border: none;
+    border-radius: var(--espaco-1);
+
+    font-size: var(--tamanho-texto);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+
+/* =========================================
+   RODAPÉ
+   ========================================= */
+
+footer {
+    padding: var(--espaco-3);
+    text-align: center;
+
+    background-color: var(--cor-neutra-900);
+    color: var(--cor-neutra-50);
+}
+
+footer p {
+    font-size: var(--tamanho-texto);
+}
+
+
+/* =========================================
+   BREAKPOINT 1 - TELAS ATÉ 1400px
+   Monitores e notebooks menores
+   ========================================= */
+
+@media (max-width: 1400px) {
+
+    main {
+        max-width: 1200px;
+        width: 92%;
+    }
+
+    main > section {
+        padding: var(--espaco-3);
+    }
+}
+
+
+/* =========================================
+   BREAKPOINT 2 - TELAS ATÉ 1200px
+   Notebooks e telas intermediárias
+   ========================================= */
+
+@media (max-width: 1200px) {
+
+    main {
+        width: 94%;
+        gap: var(--espaco-2);
+    }
+
+    nav ul {
+        gap: var(--espaco-1);
+    }
+}
+
+
+/* =========================================
+   BREAKPOINT 3 - TELAS ATÉ 992px
+   Tablets na horizontal
+   ========================================= */
+
+@media (max-width: 992px) {
+
+    .cabecalho h1 {
+        font-size: var(--tamanho-titulo);
+    }
+
+    main {
+        width: 94%;
+    }
+
+    main > section {
+        grid-column: span 6;
+    }
+
+    nav a {
+        padding: var(--espaco-1);
+    }
+}
+
+
+/* =========================================
+   BREAKPOINT 4 - TELAS ATÉ 768px
+   Tablets na vertical e telas menores
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: var(--espaco-3);
+    }
+
+    .cabecalho {
+        flex-direction: column;
+    }
+
+    .cabecalho h1 {
+        font-size: var(--tamanho-subtitulo);
+    }
+
+    main {
+        width: 92%;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+
+    /* Cada seção ocupa a largura inteira */
+    main > section {
+        grid-column: span 12;
+    }
+
+    nav ul {
+        gap: var(--espaco-1);
+    }
+}
+
+
+/* =========================================
+   BREAKPOINT 5 - TELAS ATÉ 576px
+   Celulares
+   ========================================= */
+
+@media (max-width: 576px) {
+
+    header {
+        padding: var(--espaco-2);
+    }
+
+    .cabecalho img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .cabecalho h1 {
+        font-size: var(--tamanho-titulo);
+    }
+
+    nav {
+        padding: var(--espaco-1);
+    }
+
+    nav ul {
+        gap: var(--espaco-1);
+    }
+
+    nav a {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    main {
+        width: 94%;
+        padding: var(--espaco-2) 0;
+        gap: var(--espaco-2);
+    }
+
+    main h2 {
+        font-size: var(--tamanho-subtitulo);
+    }
+
+    main h3 {
+        font-size: var(--tamanho-texto-destaque);
+    }
+
+    main > section {
+        padding: var(--espaco-2);
+    }
+
+    footer {
+        padding: var(--espaco-2);
+    }
+}
+
+
+/* ==============================
+   DROPDOWN
+   ============================== */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    padding: var(--espaco-1);
+    margin: 0;
+    background-color: var(--cor-neutra-900);
+    list-style: none;
+    z-index: 10;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    width: 100%;
+}
+
+
+/* ==============================
+   MENU HAMBÚRGUER
+   ============================== */
+
+.menu-hamburguer {
+    display: none;
+}
+
+
+/* ==============================
+   CARDS
+   ============================== */
+
+.card {
+    padding: var(--espaco-3);
+    background-color: var(--cor-neutra-100);
+    border-radius: var(--espaco-1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==============================
+   VALIDAÇÃO DOS FORMULÁRIOS
+   ============================== */
+
+input:valid,
+textarea:valid,
+select:valid {
+    border-color: #4CAF50;
+}
+
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown),
+select:invalid {
+    border-color: #D32F2F;
+}
+
+
+/* ==============================
+   MODAL
+   ============================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+}
+
+.modal.ativo {
+    display: flex;
+}
+
+.modal-conteudo {
+    width: 90%;
+    max-width: 500px;
+    padding: var(--espaco-4);
+    background-color: var(--cor-neutra-50);
+    border-radius: var(--espaco-1);
+    text-align: center;
+}
+
+.modal-fechar {
+    float: right;
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* ==============================
+   ALERTA CONTEXTUAL
+   ============================== */
+
+.alerta {
+    padding: var(--espaco-2);
+    margin: var(--espaco-2) 0;
+    border-radius: var(--espaco-1);
+    background-color: var(--cor-neutra-100);
+    border-left: 4px solid var(--cor-primaria);
+    color: #000000;
+}
+
+
+/* ==============================
+   TOAST
+   ============================== */
+
+.toast {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: var(--espaco-2) var(--espaco-3);
+    background-color: var(--cor-neutra-900);
+    color: var(--cor-neutra-50);
+    border-radius: var(--espaco-1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.toast.ativo {
+    display: block;
+}
+
+
+/* ==============================
+   RESPONSIVIDADE DO MENU
+   ============================== */
+
+@media (max-width: 768px) {
+
+    .menu-hamburguer {
+        display: block;
+        margin: 0 auto;
+        padding: var(--espaco-1) var(--espaco-2);
+        background-color: var(--cor-primaria);
+        color: var(--cor-neutra-50);
+        border: none;
+        border-radius: var(--espaco-1);
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: var(--espaco-2);
+    }
+
+    nav ul.menu-aberto {
+        display: flex;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+    }
+}
+
+
+/* ==============================
+   ESTADOS INTERATIVOS DOS BOTÕES
+   ============================== */
+
+button,
+input[type="submit"] {
+    transition: background-color 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+button:focus,
+input[type="submit"]:focus {
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+button:active,
+input[type="submit"]:active {
+    opacity: 0.8;
+}
+
+button:disabled,
+input[type="submit"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
