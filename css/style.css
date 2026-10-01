@@ -512,6 +512,8 @@ footer p {
    VALIDAÇÃO DOS FORMULÁRIOS
    ============================== */
 
+/* Validação nativa do HTML */
+
 input:valid,
 textarea:valid,
 select:valid {
@@ -522,6 +524,28 @@ input:invalid:not(:placeholder-shown),
 textarea:invalid:not(:placeholder-shown),
 select:invalid {
     border-color: #D32F2F;
+}
+
+
+/* Estados controlados pelo JavaScript */
+
+.campo-erro {
+    border: 2px solid #D32F2F;
+}
+
+.campo-sucesso {
+    border: 2px solid #4CAF50;
+}
+
+
+/* Mensagens de erro inseridas no DOM */
+
+.mensagem-erro {
+    display: block;
+    color: #D32F2F;
+    font-size: 14px;
+    margin-top: -8px;
+    margin-bottom: var(--espaco-2);
 }
 
 
@@ -571,29 +595,6 @@ select:invalid {
     border-radius: var(--espaco-1);
     background-color: var(--cor-neutra-100);
     border-left: 4px solid var(--cor-primaria);
-    color: #000000;
-}
-
-
-/* ==============================
-   TOAST
-   ============================== */
-
-.toast {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: var(--espaco-2) var(--espaco-3);
-    background-color: var(--cor-neutra-900);
-    color: var(--cor-neutra-50);
-    border-radius: var(--espaco-1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-}
-
-.toast.ativo {
-    display: block;
 }
 
 
@@ -657,4 +658,18 @@ button:disabled,
 input[type="submit"]:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+
+/* ==============================
+   ALERTA
+   ============================== */
+
+.alerta {
+    padding: var(--espaco-2);
+    margin: var(--espaco-2) 0;
+    border-radius: var(--espaco-1);
+    background-color: var(--cor-neutra-100);
+    border-left: 4px solid var(--cor-primaria);
+    color: #000000;
 }

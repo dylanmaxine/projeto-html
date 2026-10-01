@@ -4,21 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    
+
+    <link rel="stylesheet" href="../css/style.css">
+
     <title>ONG-CONEC.JOV</title>
 </head>
 
 <body>
 
 <header>
-
     <div class="cabecalho">
 
-        <img src="imagens/logo.png"
-             alt="Logo da CONEC.JOV"
-             width="150"
-             height="150">
+        <img
+            src="../imagens/logo.png"
+            alt="Logo da CONEC.JOV"
+            width="150"
+            height="150"
+        >
 
         <h1 class="titulohome">CONEC.JOV</h1>
 
@@ -37,32 +39,40 @@
 
 <nav>
 
-    <button class="menu-hamburguer" type="button" aria-label="Abrir menu">
+    <button
+        class="menu-hamburguer"
+        type="button"
+        aria-label="Abrir menu"
+    >
         ☰
     </button>
 
     <ul>
 
         <li>
-            <a href="index.html">Home</a>
+            <a href="#home">Home</a>
         </li>
 
         <li>
-            <a href="sobre.html">Sobre</a>
+            <a href="#sobre">Sobre</a>
         </li>
 
         <li class="dropdown">
 
-            <a href="cursos.html">Cursos</a>
+            <a href="#cursos">Cursos</a>
 
             <ul class="dropdown-menu">
 
                 <li>
-                    <a href="inclusaodigital.html">Inclusão Digital</a>
+                    <a href="#inclusao-digital">
+                        Inclusão Digital
+                    </a>
                 </li>
 
                 <li>
-                    <a href="cronograma.html">Cronograma</a>
+                    <a href="#cronograma">
+                        Cronograma
+                    </a>
                 </li>
 
             </ul>
@@ -70,87 +80,23 @@
         </li>
 
         <li>
-            <a href="projetos.html">Projetos</a>
+            <a href="#projetos">Projetos</a>
         </li>
 
         <li>
-            <a href="voluntariado.html">Voluntariado</a>
+            <a href="#voluntariado">Voluntariado</a>
         </li>
 
         <li>
-            <a href="doacoes.html">Doações</a>
+            <a href="#doacoes">Doações</a>
         </li>
 
     </ul>
 
 </nav>
 
-<main>
-
-    <hr>
-
-    <h2>Bem-vindo à CONEC.JOV!</h2>
-
-    <p>
-        Estamos comprometidos em oferecer oportunidades de aprendizado e
-        desenvolvimento para jovens em situação de vulnerabilidade. Explore
-        nossos cursos e programas para descobrir como você pode se beneficiar
-        de nossas iniciativas.
-    </p>
-
-    <img src="imagens/bemvindo.jpg"
-         alt="Jovens participando de uma atividade"
-         width="500"
-         height="350">
-
-    <hr>
-
-    <section>
-
-        <h3>Nossos Cursos</h3>
-
-        <span class="badge">ATIVO</span>
-
-        <p>
-            Oferecemos uma variedade de cursos e programas de capacitação
-            para ajudar os jovens a desenvolverem habilidades essenciais
-            para o mercado de trabalho e para a vida.
-        </p>
-
-        <a href="cursos.html">Saiba mais sobre nossos cursos</a>
-
-    </section>
-
-    <hr>
-
-    <section>
-
-        <h3>Voluntariado</h3>
-
-        <p>
-            Participe de nossas ações de voluntariado e faça a diferença
-            na vida de jovens em situação de vulnerabilidade.
-        </p>
-
-        <a href="voluntariado.html">Faça parte de nossa missão</a>
-
-    </section>
-
-    <hr>
-
-    <section>
-
-        <h3>Doações</h3>
-
-        <p>
-            Apoie a nossa causa e faça a diferença na vida de jovens
-            em situação de vulnerabilidade.
-        </p>
-
-        <a href="doacoes.html">Contribua conosco</a>
-
-    </section>
-
+<main id="app">
+    <!-- O JavaScript irá inserir o conteúdo aqui -->
 </main>
 
 <hr>
@@ -196,112 +142,9 @@
         required
     ></textarea>
 
-    <button
-        type="button"
-        onclick="mostrarAlerta()">
+    <button type="button">
         Enviar
     </button>
-
-
-    <!-- ALERTA -->
-
-    <div
-        id="alerta"
-        class="alerta"
-        style="display: none;">
-
-        Mensagem enviada com sucesso!
-
-    </div>
-
-
-    <!-- TOAST -->
-
-    <div
-        id="toast"
-        class="toast">
-
-        Mensagem enviada com sucesso!
-
-    </div>
-
-
-    <script>
-
-        function mostrarAlerta() {
-
-            const email =
-                document.querySelector('input[type="email"]');
-
-            const telefone =
-                document.querySelector('input[type="tel"]');
-
-            const mensagem =
-                document.querySelector('textarea');
-
-            const alerta =
-                document.getElementById("alerta");
-
-            const toast =
-                document.getElementById("toast");
-
-
-            if (
-                email.checkValidity() &&
-                telefone.checkValidity() &&
-                mensagem.checkValidity()
-            ) {
-
-                /* Mostra o alerta */
-
-                alerta.style.display = "block";
-
-
-                /* Mostra o toast */
-
-                toast.classList.add("ativo");
-
-
-                /* Esconde o toast depois de 3 segundos */
-
-                setTimeout(function() {
-
-                    toast.classList.remove("ativo");
-
-                }, 3000);
-
-
-            } else {
-
-                /* Mantém as mensagens escondidas */
-
-                alerta.style.display = "none";
-
-                toast.classList.remove("ativo");
-
-
-                /* Mostra o erro do primeiro campo inválido */
-
-                if (!email.checkValidity()) {
-
-                    email.reportValidity();
-
-                } else if (!telefone.checkValidity()) {
-
-                    telefone.reportValidity();
-
-                } else if (!mensagem.checkValidity()) {
-
-                    mensagem.reportValidity();
-
-                }
-
-            }
-
-        }
-
-    </script>
-
 
     <p>
         &copy; 2026 CONEC.JOV. Todos os direitos reservados.
@@ -309,7 +152,7 @@
 
 </footer>
 
-<script src="script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 
