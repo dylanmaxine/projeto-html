@@ -1136,3 +1136,46 @@ window.addEventListener(
 
     }
 );
+
+const formularioContato = document.getElementById("form-contato");
+
+if (formularioContato) {
+
+    formularioContato.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        const campos = formularioContato.querySelectorAll(
+            "input, textarea"
+        );
+
+        let formularioValido = true;
+
+        campos.forEach((campo) => {
+
+            if (!campo.checkValidity()) {
+                formularioValido = false;
+            }
+
+        });
+
+        const mensagemContato =
+            document.getElementById("mensagem-contato");
+
+        if (formularioValido) {
+
+            mensagemContato.textContent =
+                "Mensagem enviada com sucesso!";
+
+            formularioContato.reset();
+
+        } else {
+
+            mensagemContato.textContent =
+                "Preencha corretamente todos os campos.";
+
+        }
+
+    });
+
+}
