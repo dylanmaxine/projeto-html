@@ -96,9 +96,7 @@ A aplicação apresenta os seguintes cursos:
 
 ---
 
-## Estrutura do projeto
-
-A estrutura principal do projeto está organizada da seguinte maneira:
+📁 Estrutura do projeto
 
 ```text
 projeto-html/
@@ -113,4 +111,11 @@ projeto-html/
 ├── js/
 │   └── script.js
 │
-└── index.html
+├── index.html
+├── sobre.html
+├── cursos.html
+├── projetos.html
+├── voluntariado.html
+├── doacoes.html
+├── inclusaodigital.html
+└── cronograma.html
